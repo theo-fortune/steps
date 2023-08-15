@@ -17,44 +17,60 @@ const Challenge = () => {
     setStep((s) => step + 1);
   };
 
-  // *Get day name
-  const dayNames = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  const day = new Date().getDay();
-  const dayName = dayNames[day];
-  console.log(dayName);
+  // // *Get day name
+  // const dayNames = [
+  //   "Sunday",
+  //   "Monday",
+  //   "Tuesday",
+  //   "Wednesday",
+  //   "Thursday",
+  //   "Friday",
+  //   "Saturday",
+  // ];
+  // const day = new Date().getDay();
+  // const dayName = dayNames[day];
+  // console.log(dayName);
 
-  // *Get month name
-  const monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  const month = new Date().getMonth();
-  const monthName = monthNames[month];
-  console.log(monthName);
+  // // *Get month name
+  // const monthNames = [
+  //   "January",
+  //   "February",
+  //   "March",
+  //   "April",
+  //   "May",
+  //   "June",
+  //   "July",
+  //   "August",
+  //   "September",
+  //   "October",
+  //   "November",
+  //   "December",
+  // ];
+  // const month = new Date().getMonth();
+  // const monthName = monthNames[month];
+  // console.log(monthName);
 
-  // *Get date
-  const date = new Date().getDate()
+  // // *Get year
+  // const year = new Date().getFullYear();
 
-  // *Get year
-  const year = new Date().getFullYear()
+  // // *Get current date
+  // const currentDate = new Date();
+  // console.log(currentDate);
+
+  const options = {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  };
+  // const formattedDate = currentDate.toLocaleDateString(undefined, options);
+  // console.log(formattedDate);
+  // const formattedDate = date.toLocaleDateString(undefined, options)
+
+  //! Get Fake Date
+  const date = new Date();
+  console.log(date);
+  date.setDate(date.getDate() + count)
 
   return (
     <div
@@ -75,7 +91,11 @@ const Challenge = () => {
         Count: {count}
         <button onClick={addCount}>+</button>
       </div>
-      <p>Today is {dayName} {monthName} {date} {year}</p>
+      <p>
+        <span>{count === 0 ? "Today is:" : count > 0 ? `${count} days from today is` : `${count} days ago was`}</span> &nbsp;
+        <span>{date.toDateString()}</span>
+        
+      </p>
     </div>
   );
 };
