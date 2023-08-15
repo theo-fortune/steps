@@ -92,9 +92,8 @@ const Challenge = () => {
         <button onClick={addCount}>+</button>
       </div>
       <p>
-        <span>{count === 0 ? "Today is:" : count > 0 ? `${count} days from today is` : `${count} days ago was`}</span> &nbsp;
+        <span>{count === 0 ? "Today is:" : count > 0 ? `${Math.abs(count)} days from today is` : `${count} days ago was`}</span> &nbsp;
         <span>{date.toDateString()}</span>
-        
       </p>
     </div>
   );
